@@ -35,20 +35,9 @@ const getInputedNum = () => {
     );
 }
 
-// const resetButtonHandler = () => {
-//     let reset = "";
-//     outputElement.textContent = reset;
-//     enteredNum = 0;
-// }
-
-
 const resultOfInput = getInputedNum();
 
 resultOfInput
 .then((argum) => {outputElement.textContent = argum;})
 
 .catch(argum => outputElement.textContent = argum);
-
-//Кнопку доработать надо
-
-// resetBtn.addEventListener('click', resetButtonHandler);
