@@ -18,6 +18,7 @@ const getInputedNum = () => {
                 callBackSuccess('Ура, мы выиграли: ' + enteredNameString);
             } else {
                 callBackReject('Не повезло, не подфортило');
+                alertSound.play();
             }
         }
         play.addEventListener('click', handleClickSubmitNameBtn);
