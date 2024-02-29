@@ -1,24 +1,26 @@
 const outputElement = document.querySelector('#timer');
 const play = document.querySelector('#getnamebtn');
 const cancelEnterPlayBtn = document.querySelector('#goaway');
+const resetBtn = document.querySelector('#reset');
 
-let inputElement = Math.round(Math.random() * 100 + 1);
 let enteredNum;
 
 const getInputedNum = () => {
     return new Promise(
         
         (callBackSuccess, callBackReject) => {
-        
+        let inputElement = Math.round(Math.random() * 100);
+
         const handleClickSubmitNameBtn = () => {
+            
             enteredNum = inputElement;
-            console.log(enteredNum);
             if (enteredNum > 70) {
                 callBackSuccess('Ура, мы выиграли: ' + enteredNum);
             } else {
-                callBackReject('Не повезло, не подфортило');
+                callBackReject('Не повезло, не подфартило: ' + enteredNum);
                 alertSound.play();
             }
+            console.log(enteredNum);
         }
         play.addEventListener('click', handleClickSubmitNameBtn);
 
@@ -27,15 +29,24 @@ const getInputedNum = () => {
             alertSound.play();
         }
         cancelEnterPlayBtn.addEventListener('click', handleClickRejectNameBtn);
+
+        resetBtn.addEventListener('click', () => {
+
+            play.removeEventListener('click', handleClickSubmitNameBtn);
+            outputElement.textContent = '';
+        });
+
     }
 
     );
 }
 
-
-const resultOfInput = getInputedNum();
-
-resultOfInput
+resetBtn.addEventListener('click', () => {
+    getInputedNum()
+    .then((argum) => {outputElement.textContent = argum;})
+    .catch(argum => outputElement.textContent = argum);
+});
+    
+getInputedNum()
 .then((argum) => {outputElement.textContent = argum;})
-
 .catch(argum => outputElement.textContent = argum);
