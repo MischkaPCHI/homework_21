@@ -1,9 +1,6 @@
 const outputElement = document.querySelector('#timer');
 const play = document.querySelector('#getnamebtn');
 const cancelEnterPlayBtn = document.querySelector('#goaway');
-const resetBtn = document.querySelector('#reset');
-
-
 
 let inputElement = Math.round(Math.random() * 100 + 1);
 let enteredNum;
@@ -34,7 +31,6 @@ const getInputedNum = () => {
 
     );
 }
-
 
 
 const resultOfInput = getInputedNum();
