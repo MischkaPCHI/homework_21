@@ -5,7 +5,7 @@ const resetBtn = document.querySelector('#reset');
 
 
 
-let inputElement = () => Math.round(Math.random() * 100 + 1);
+let inputElement = Math.round(Math.random() * 100 + 1);
 let enteredNum;
 
 const getInputedNum = () => {
@@ -14,7 +14,7 @@ const getInputedNum = () => {
         (callBackSuccess, callBackReject) => {
         
         const handleClickSubmitNameBtn = () => {
-            enteredNum = inputElement();
+            enteredNum = inputElement;
             console.log(enteredNum);
             if (enteredNum > 70) {
                 callBackSuccess('Ура, мы выиграли: ' + enteredNum);
@@ -34,6 +34,8 @@ const getInputedNum = () => {
 
     );
 }
+
+
 
 const resultOfInput = getInputedNum();
 
