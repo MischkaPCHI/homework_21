@@ -4,8 +4,9 @@ const cancelEnterPlayBtn = document.querySelector('#goaway');
 const resetBtn = document.querySelector('#reset');
 
 
-const inputElement = Math.round(Math.random() * 100);
-let enteredNameString;
+
+let inputElement = () => Math.round(Math.random() * 100 + 1);
+let enteredNum;
 
 const getInputedNum = () => {
     return new Promise(
@@ -13,9 +14,10 @@ const getInputedNum = () => {
         (callBackSuccess, callBackReject) => {
         
         const handleClickSubmitNameBtn = () => {
-            enteredNameString = inputElement;
-            if (enteredNameString > 70) {
-                callBackSuccess('Ура, мы выиграли: ' + enteredNameString);
+            enteredNum = inputElement();
+            console.log(enteredNum);
+            if (enteredNum > 70) {
+                callBackSuccess('Ура, мы выиграли: ' + enteredNum);
             } else {
                 callBackReject('Не повезло, не подфортило');
                 alertSound.play();
@@ -29,8 +31,13 @@ const getInputedNum = () => {
         }
         cancelEnterPlayBtn.addEventListener('click', handleClickRejectNameBtn);
     }
-    
+
     );
+}
+
+const resetButtonHandler = () => {
+    let reset = "";
+    outputElement.textContent = reset;
 }
 
 
@@ -40,3 +47,6 @@ resultOfInput
 .then((argum) => {outputElement.textContent = argum})
 
 .catch(argum => outputElement.textContent = argum);
+
+
+resetBtn.addEventListener('click', resetButtonHandler);
