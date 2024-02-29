@@ -24,6 +24,7 @@ const getInputedNum = () => {
 
         const handleClickRejectNameBtn = () => {
             callBackReject('Отказался играть');
+            alertSound.play();
         }
         cancelEnterPlayBtn.addEventListener('click', handleClickRejectNameBtn);
     }
