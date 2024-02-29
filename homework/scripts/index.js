@@ -14,7 +14,7 @@ const getInputedNum = () => {
         
         const handleClickSubmitNameBtn = () => {
             enteredNameString = inputElement;
-            if (enteredNameString <= 70) {
+            if (enteredNameString > 70) {
                 callBackSuccess('Ура, мы выиграли: ' + enteredNameString);
             } else {
                 callBackReject('Не повезло, не подфортило');
